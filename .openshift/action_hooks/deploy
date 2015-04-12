@@ -23,17 +23,13 @@ if [ ! -d $CATALINA_HOME ]; then
     rm -f *.tar.gz
 
     cd $CATALINA_HOME
-    rm -rf logs/*
+    rm -rf logs
     rm -rf webapps/*
     rm -rf work/*
     rm -rf temp/*
     ln -s $OPENSHIFT_DIY_LOG_DIR logs
 
-    mysql --user=$OPENSHIFT_MYSQL_DB_USERNAME \
-          --password=$OPENSHIFT_MYSQL_DB_PASSWORD \
-          --host=$OPENSHIFT_MYSQL_DB_HOST \
-          --port=$OPENSHIFT_MYSQL_DB_PORT \
-          --database=$OPENSHIFT_APP_NAME < $OPENSHIFT_REPO_DIR/diy/init-db.sql
+    mysql --user=$OPENSHIFT_MYSQL_DB_USERNAME --password=$OPENSHIFT_MYSQL_DB_PASSWORD --host=$OPENSHIFT_MYSQL_DB_HOST --port=$OPENSHIFT_MYSQL_DB_PORT --database=$OPENSHIFT_APP_NAME < $OPENSHIFT_REPO_DIR/diy/init-db.sql
 
 fi
 

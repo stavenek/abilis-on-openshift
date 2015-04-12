@@ -23,10 +23,10 @@ if [ ! -d $CATALINA_HOME ]; then
     rm -f *.tar.gz
 
     cd $CATALINA_HOME
-    rm -rf logs
-    rm -rf webapps
-    rm -rf work
-    rm -rf temp
+    rm -rf logs/*
+    rm -rf webapps/*
+    rm -rf work/*
+    rm -rf temp/*
     ln -s $OPENSHIFT_DIY_LOG_DIR logs
 fi
 

@@ -32,8 +32,8 @@ fi
 
 mkdir -p $OPENSHIFT_DATA_DIR/axel/images/upload
 cp $OPENSHIFT_REPO_DIR/diy/server.xml $CATALINA_HOME/conf
-sed -ig 's/OPENSHIFT_DIY_IP/'$OPENSHIFT_DIY_IP'/' conf/server.xml
-sed -ig 's/OPENSHIFT_DIY_PORT/'$OPENSHIFT_DIY_PORT'/' conf/server.xml
+sed -ig 's/OPENSHIFT_DIY_IP/'$OPENSHIFT_DIY_IP'/' $CATALINA_HOME/conf/server.xml
+sed -ig 's/OPENSHIFT_DIY_PORT/'$OPENSHIFT_DIY_PORT'/' $CATALINA_HOME/conf/server.xml
 
 
 

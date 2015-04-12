@@ -22,6 +22,7 @@ rhc app show $1 | tee rhc.txt
 git remote add knowly-axel-openshift git://github.com/joachimbjorklund/knowly-axel-openshift.git
 git pull --no-edit -s recursive -X theirs knowly-axel-openshift master 
 git rm -r misc
+git rm new-axel.sh
 git rm diy/index.html
 git rm diy/testrubyserver.rb
 git commit -m "removed"

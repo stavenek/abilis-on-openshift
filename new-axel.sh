@@ -17,8 +17,8 @@ if [ -z "$2" ]; then
 fi
 
 rhc app create $1 diy-0.1 mysql-5.5 -l $2 || exit
-rhc app show $1 | tee rhc.txt
 cd $1
+rhc app show $1 | tee rhc.txt
 git remote add knowly-axel-openshift git://github.com/joachimbjorklund/knowly-axel-openshift.git
 git pull --no-edit -s recursive -X theirs knowly-axel-openshift master 
 git rm -r misc

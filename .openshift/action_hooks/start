@@ -10,7 +10,7 @@ export CATALINA_HOME=$OPENSHIFT_DATA_DIR/apache-tomcat-8.0.21
 
 cd $OPENSHIFT_REPO_DIR
 
-export CATALINA_OPTS="-Dconfiguration.profile=$OPENSHIFT_APP_DNS -Duser.timezone=UTC"
+export CATALINA_OPTS="-Dconfiguration.profile=rhc -Duser.timezone=UTC"
 export JPDA_ADDRESS=$OPENSHIFT_DIY_IP:8000
 
 $CATALINA_HOME/bin/catalina.sh jpda start

@@ -16,15 +16,14 @@ if [ -z "$2" ]; then
     echo "need login (email)"
     exit
 fi
+email=$2
 
-rhc app create $rhc_app diy-0.1 mysql-5.5 -l $2 || exit
+rhc app create ${rhc_app} jbossews-2.0 mysql-5.5 -l ${email} || exit
+rhc set-env JAVA_OPTS_EXT="-Dconfiguration.profile=rhc -Duser.timezone=UTC" -a ${rhc_app}
 cd ${rhc_app}
 git remote add knowly-axel-openshift https://github.com/joachimbjorklund/knowly-axel-openshift.git || exit
 git pull --no-edit -s recursive -X theirs knowly-axel-openshift master || exit
 rhc app show ${rhc_app} | tee rhc.txt
-git rm -r misc
-git rm diy/index.html
-git rm diy/testrubyserver.rb
 git commit -m "removed"
 git push
 

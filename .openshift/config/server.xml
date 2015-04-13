@@ -149,7 +149,7 @@
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
         -->
-        <Context docBase="../../data/axel/images/upload" path="/images/upload" />
+        <Context docBase="../../../data/axel/images/upload" path="/images/upload" />
       </Host>
     </Engine>
   </Service>

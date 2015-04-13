@@ -11,7 +11,7 @@ if [ ! -e $OPENSHIFT_DATA_DIR/app.initialized ]; then
     mkdir -p $OPENSHIFT_DATA_DIR/axel
     cp -r $OPENSHIFT_REPO_DIR/init/images $OPENSHIFT_DATA_DIR/axel
 
-    for i in `find . -name server.xml`; do
+    for i in `find . -name server.xml 2> /dev/null`; do
         sed -ig 's/OPENSHIFT_DATA_DIR/'$OPENSHIFT_DATA_DIR'/' $i
     done
 

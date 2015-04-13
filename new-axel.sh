@@ -18,13 +18,15 @@ if [ -z "$2" ]; then
 fi
 
 rhc app create $rhc_app diy-0.1 mysql-5.5 -l $2 || exit
-cd $rhc_app
+cd ${rhc_app}
 git remote add knowly-axel-openshift git://github.com/joachimbjorklund/knowly-axel-openshift.git
 git pull --no-edit -s recursive -X theirs knowly-axel-openshift master 
-rhc app show $rhc_app | tee rhc.txt
+rhc app show ${rhc_app} | tee rhc.txt
 git rm -r misc
 git rm diy/index.html
 git rm diy/testrubyserver.rb
 git commit -m "removed"
 git push
+
+rhc tail ${rhc_app}
 

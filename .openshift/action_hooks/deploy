@@ -6,8 +6,10 @@
 set -x
 
 if [ ! -e $OPENSHIFT_DATA_DIR/app.initialized ]; then
-    mysql --user=$OPENSHIFT_MYSQL_DB_USERNAME --password=$OPENSHIFT_MYSQL_DB_PASSWORD --host=$OPENSHIFT_MYSQL_DB_HOST --port=$OPENSHIFT_MYSQL_DB_PORT --database=$OPENSHIFT_APP_NAME < $OPENSHIFT_REPO_DIR/sql/init-db.sql
-    mkdir -p $OPENSHIFT_DATA_DIR/axel/images/upload
+    mysql --user=$OPENSHIFT_MYSQL_DB_USERNAME --password=$OPENSHIFT_MYSQL_DB_PASSWORD --host=$OPENSHIFT_MYSQL_DB_HOST --port=$OPENSHIFT_MYSQL_DB_PORT --database=$OPENSHIFT_APP_NAME < $OPENSHIFT_REPO_DIR/init/init-db.sql
+
+    mkdir -p $OPENSHIFT_DATA_DIR/axel
+    cp -r $OPENSHIFT_REPO_DIR/init/images $OPENSHIFT_DATA_DIR/axel
 
     touch $OPENSHIFT_DATA_DIR/app.initialized
 fi

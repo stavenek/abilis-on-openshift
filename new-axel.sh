@@ -23,6 +23,8 @@ rhc set-env JAVA_OPTS_EXT="-Dconfiguration.profile=rhc -Duser.timezone=UTC" -a $
 cd ${rhc_app}
 git remote add knowly-axel-openshift https://github.com/joachimbjorklund/knowly-axel-openshift.git || exit
 git pull --no-edit -s recursive -X theirs knowly-axel-openshift master || exit
+git rm -r src
+git rm pom.xml
 rhc app show ${rhc_app} | tee rhc.txt
 git commit -m "removed"
 git push

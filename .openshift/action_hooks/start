@@ -14,4 +14,4 @@ export CATALINA_OPTS="-Dconfiguration.profile=rhc -Duser.timezone=UTC"
 #export JPDA_ADDRESS=$OPENSHIFT_DIY_IP:8000
 
 #$CATALINA_HOME/bin/catalina.sh jpda start
-$CATALINA_HOME/bin/catalina.sh start
+$CATALINA_HOME/bin/startup.sh

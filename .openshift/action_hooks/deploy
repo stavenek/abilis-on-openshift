@@ -11,8 +11,6 @@ if [ ! -e $OPENSHIFT_DATA_DIR/app.initialized ]; then
     mkdir -p $OPENSHIFT_DATA_DIR/axel
     cp -r $OPENSHIFT_REPO_DIR/init/images $OPENSHIFT_DATA_DIR/axel
 
-    sed -ig 's/OPENSHIFT_DATA_DIR/'$OPENSHIFT_DATA_DIR'/' $OPENSHIFT_JBOSSEWS_DIR/conf/server.xml
-
     touch $OPENSHIFT_DATA_DIR/app.initialized
 fi
 
